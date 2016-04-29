@@ -46,6 +46,11 @@
           iconGameCheck(4);
         });
 
+        /**
+        * Function called whenever an icon is clicked to check against the icon asked for
+        * @param {integer} iconNumber - this represents the icon that has been clicked so that this function knows what to compare against.
+        * @param {integer} correctOption - this is the correct icon relating to the question asked, note that unlike the {integer} iconNumber, it represents the position of an array element hence beigns with 0, not 1.
+        */
         function iconGameCheck(iconNumber){
           console.log("icon number:" + iconNumber + " and " + "options array number:" + correctOption);
           if ((iconNumber - 1) === correctOption) {
@@ -59,6 +64,13 @@
 
         }
 
+        /**
+        *This code block randomly selects 4 unique icons from the items array
+        *@param {string} option1 - icon to be placed on position 1
+        *@param {string} option2 - icon to be placed on position 2
+        *@param {string} option3 - icon to be placed on position 3
+        *@param {string} option4 - icon to be placed on position 4
+        */
         var option1 = items[Math.floor(Math.random()*items.length)].dname;
         var option2 = items[Math.floor(Math.random()*items.length)].dname;
         while (option2 === option1) {
@@ -76,11 +88,13 @@
         }
 
         console.log(option1 + ", " + option2 + ", " + option3 + ", " + option4);
+
+        /**
+        *@param {array} options - array the current available 4 icon options as elements
+        *@param {integer} correctOption - holds a randomly selected position from the options array
+        */
         var options = [option1,option2,option3,option4];
-
         var correctOption = Math.floor(Math.random()*options.length);
-
-        //var answer = [icon,correctOption];
 
         $( ".firstIcon" ).append( "<i class='material-icons md-48 ' style='font-size: 8em;'>" + option1 + "</i>" );
         $( ".secondIcon" ).append( "<i class='material-icons md-48 ' style='font-size: 8em;'>" + option2 + "</i>" );
@@ -89,6 +103,4 @@
 
         $( ".theQuestion" ).append( options[correctOption] );
         //$( "test" ).appendTo( ".theQuestion" );
-
-        console.log(question);
 });
