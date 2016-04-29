@@ -31,32 +31,49 @@
           html: items_data.join( "" )
         }).appendTo( ".thelist" );
 
+        var iconStatus = 0;
+
         $( ".firstIcon" ).click(function() {
-          iconGame(1);
+          iconGameCheck(1);
         });
         $( ".secondIcon" ).click(function() {
-          iconGame(2);
+          iconGameCheck(2);
         });
         $( ".thirdIcon" ).click(function() {
-          iconGame(2);
+          iconGameCheck(3);
         });
         $( ".fourthIcon" ).click(function() {
-          iconGame(4);
+          iconGameCheck(4);
         });
 
-        function iconGame(iconNumber){
+        function iconGameCheck(iconNumber){
           console.log(iconNumber);
           $( "test" ).appendTo( ".theQuestion" );
         }
 
+        function iconGameNext(){
+
+        }
+
         var option1 = items[Math.floor(Math.random()*items.length)].dname;
         var option2 = items[Math.floor(Math.random()*items.length)].dname;
+        while (option2 === option1) {
+          option2 = items[Math.floor(Math.random()*items.length)].dname;
+        }
+
         var option3 = items[Math.floor(Math.random()*items.length)].dname;
+        while (option3 === option2 || option3 === option1) {
+          option3 = items[Math.floor(Math.random()*items.length)].dname;
+        }
+
         var option4 = items[Math.floor(Math.random()*items.length)].dname;
+        while (option4 === option3 || option4 === option2 || option4 === option1) {
+          option4 = items[Math.floor(Math.random()*items.length)].dname;
+        }
 
         var options = [option1,option2,option3,option4];
 
-        var correctOption = options[Math.floor(Math.random()*items.length)];
+        var correctOption = Math.floor(Math.random()*items.length);
 
         //var answer = [icon,correctOption];
 
