@@ -30,18 +30,42 @@
           "class": "list-group",
           html: items_data.join( "" )
         }).appendTo( ".thelist" );
-        /*
-        $.getJSON( "fonts.json", function( data ) {
-          var items = [];
-          $.each( data, function( key, val ) {
-            items.push( "<a href='#' class='list-group-item '><i class='material-icons md-48' style='margin-right:20%;'>" + val.dname +"</i>" + val.dname +"</a>" );
-          });
 
-          $( "<div/>", {
-            "class": "list-group",
-            html: items.join( "" )
-          }).appendTo( ".thelist" );
-        });*/
+        $( ".firstIcon" ).click(function() {
+          iconGame(1);
+        });
+        $( ".secondIcon" ).click(function() {
+          iconGame(2);
+        });
+        $( ".thirdIcon" ).click(function() {
+          iconGame(2);
+        });
+        $( ".fourthIcon" ).click(function() {
+          iconGame(4);
+        });
 
+        function iconGame(iconNumber){
+          console.log(iconNumber);
+          $( "test" ).appendTo( ".theQuestion" );
+        }
 
+        var option1 = items[Math.floor(Math.random()*items.length)].dname;
+        var option2 = items[Math.floor(Math.random()*items.length)].dname;
+        var option3 = items[Math.floor(Math.random()*items.length)].dname;
+        var option4 = items[Math.floor(Math.random()*items.length)].dname;
+
+        var options = [option1,option2,option3,option4];
+
+        var correctOption = options[Math.floor(Math.random()*items.length)];
+
+        //var answer = [icon,correctOption];
+
+        $( ".firstIcon" ).append( "<i class='material-icons md-48 ' style='font-size: 8em;'>" + option1 + "</i>" );
+        $( ".secondIcon" ).append( "<i class='material-icons md-48 ' style='font-size: 8em;'>" + option2 + "</i>" );
+        $( ".thirdIcon" ).append( "<i class='material-icons md-48 ' style='font-size: 8em;'>" + option3 + "</i>" );
+        $( ".fourthIcon" ).append( "<i class='material-icons md-48 ' style='font-size: 8em;'>" + option4 + "</i>" );
+
+        $( ".theQuestion" ).append( option2 );
+
+        console.log(question);
 });
