@@ -47,8 +47,12 @@
         });
 
         function iconGameCheck(iconNumber){
-          console.log(iconNumber);
-          $( "test" ).appendTo( ".theQuestion" );
+          console.log("icon number:" + iconNumber + " and " + "options array number:" + correctOption);
+          if ((iconNumber - 1) === correctOption) {
+            console.log("correct answer, this is the " + options[correctOption] + " icon");
+          }else {
+            console.log("sorry, that is the "+ options[(iconNumber-1)] +" icon, please try again");
+          }
         }
 
         function iconGameNext(){
@@ -71,9 +75,10 @@
           option4 = items[Math.floor(Math.random()*items.length)].dname;
         }
 
+        console.log(option1 + ", " + option2 + ", " + option3 + ", " + option4);
         var options = [option1,option2,option3,option4];
 
-        var correctOption = Math.floor(Math.random()*items.length);
+        var correctOption = Math.floor(Math.random()*options.length);
 
         //var answer = [icon,correctOption];
 
@@ -82,7 +87,8 @@
         $( ".thirdIcon" ).append( "<i class='material-icons md-48 ' style='font-size: 8em;'>" + option3 + "</i>" );
         $( ".fourthIcon" ).append( "<i class='material-icons md-48 ' style='font-size: 8em;'>" + option4 + "</i>" );
 
-        $( ".theQuestion" ).append( option2 );
+        $( ".theQuestion" ).append( options[correctOption] );
+        //$( "test" ).appendTo( ".theQuestion" );
 
         console.log(question);
 });
